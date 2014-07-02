@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servidor1;
+package servidor1;
 
-import conexionmysql.ConexionBD;
 import java.rmi.RemoteException;
-import java.util.Scanner;
 import javax.swing.*;
 import java.awt.event.*;
 import rmi.ImplementacionServidorRMI;

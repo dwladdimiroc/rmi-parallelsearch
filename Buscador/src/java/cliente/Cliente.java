@@ -7,8 +7,6 @@ package cliente;
 
 import interfacermi.InterfaceRMI;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import paginaweb.PaginaWeb;
 import rmi.ConexionRMI;
 
 /**
@@ -20,9 +18,9 @@ public class Cliente {
     public static int puerto = 4000; // Buscar Puertos abiertos
     public static String direccionServer1 = "localhost"; //Por ahora es localhost se tendria que cambiar a la IP del servidor RMI
     public static String nombreReferenciaRemota = "Implementacion"; // Nombre de el objeto subido
-    public int contador;
+    public int datosConexion=0;
 
-    public ArrayList<PaginaWeb> busquedaParalela() {
+    public int busquedaParalela() {
 
         InterfaceRMI objetoRemoto;
 
@@ -36,11 +34,11 @@ public class Cliente {
             objetoRemoto = conexion.getServidor();
 
             //Este método se ejecuta en el servidor
-            datosConexion = objetoRemoto.obtenerDatos();
+            datosConexion = objetoRemoto.busquedaArchivo();
 
         } catch (RemoteException e) {
             System.out.println("Ha ocurrido un error");
-            return null;
+            return 0;
         }
 
         return datosConexion;

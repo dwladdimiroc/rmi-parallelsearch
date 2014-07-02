@@ -6,7 +6,7 @@
 package rmi;
 
 
-import interfacermi.InterfaceRMIServer;
+import interfacermi.InterfaceRMI;
 import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -66,7 +66,7 @@ public class ServidorRMI {
         }
     }
 
-    public boolean iniciarConexion(InterfaceRMIServer objetoAPublicar, String nombreUsado, int puerto) {
+    public boolean iniciarConexion(InterfaceRMI objetoAPublicar, String nombreUsado, int puerto) {
 
         try {
             this.registro = getRegistry(puerto);
