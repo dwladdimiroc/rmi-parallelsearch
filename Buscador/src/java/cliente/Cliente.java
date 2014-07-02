@@ -19,8 +19,9 @@ public class Cliente {
     public static String direccionServer1 = "localhost"; //Por ahora es localhost se tendria que cambiar a la IP del servidor RMI
     public static String nombreReferenciaRemota = "Implementacion"; // Nombre de el objeto subido
     public int datosConexion=0;
+    public String dirArchivo;
 
-    public int busquedaParalela() {
+    public String busquedaParalela(String busqueda) {
 
         InterfaceRMI objetoRemoto;
 
@@ -34,13 +35,34 @@ public class Cliente {
             objetoRemoto = conexion.getServidor();
 
             //Este método se ejecuta en el servidor
-            datosConexion = objetoRemoto.busquedaArchivo();
+            dirArchivo = objetoRemoto.busquedaArchivo(busqueda);
 
         } catch (RemoteException e) {
             System.out.println("Ha ocurrido un error");
-            return 0;
+            return null;
         }
 
-        return datosConexion;
+        return dirArchivo;
+    }
+    
+    public void actualizarArbolServidor() {
+
+        InterfaceRMI objetoRemoto;
+
+        //Se instancia el objeto que conecta con el servidor
+        ConexionRMI conexion = new ConexionRMI();
+        try {
+            //Se conecta con el servidor
+            conexion.iniciarRegistry(direccionServer1, puerto, nombreReferenciaRemota);
+
+            //Se obtiene la referencia al objeto remoto
+            objetoRemoto = conexion.getServidor();
+
+            //Este método se ejecuta en el servidor
+            objetoRemoto.actualizarArbol();
+
+        } catch (RemoteException e) {
+            System.out.println("Ha ocurrido un error");
+        }
     }
 }

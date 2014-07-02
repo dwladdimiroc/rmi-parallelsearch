@@ -8,11 +8,13 @@ package interfacermi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.TreeMap;
 
 /**
  *
  * @author daniel
  */
 public interface InterfaceRMI extends Remote {
-    public int busquedaArchivo() throws RemoteException;
+    public String busquedaArchivo(String nombre) throws RemoteException;
+    public void actualizarArbol() throws RemoteException;
 }

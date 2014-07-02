@@ -29,6 +29,7 @@ public class ServidorRMI {
 
     private Registry registro;
     private boolean conectado;
+    private static int numero;
 
     public ServidorRMI() {
         this.conectado = false;

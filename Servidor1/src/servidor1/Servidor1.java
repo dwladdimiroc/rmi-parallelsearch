@@ -8,6 +8,8 @@ package servidor1;
 import java.rmi.RemoteException;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rmi.ImplementacionServidorRMI;
 import rmi.ServidorRMI;
 

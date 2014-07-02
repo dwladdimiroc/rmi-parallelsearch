@@ -14,5 +14,6 @@ import java.rmi.RemoteException;
  * @author daniel
  */
 public interface InterfaceRMI extends Remote {
-    public int busquedaArchivo() throws RemoteException;
+    public String busquedaArchivo(String nombre) throws RemoteException;
+    public void actualizarArbol() throws RemoteException;
 }

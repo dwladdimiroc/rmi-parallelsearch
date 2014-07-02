@@ -1,3 +1,5 @@
+<%@page import="java.util.TreeMap"%>
+<%@page import="cliente.Cliente"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,12 +40,20 @@
                 <h3 class="text-center">
                     <img src="img/google3.gewif" alt="" title="" border="0" /><!-- gif google -->
                 </h3>
-                    <form>
-                    <input title="Ingrese una búsqueda" type="text" name="buscador" id="buscador" pattern="[a-zA-Z0-9]+" required/><br/>
-                    <input type="submit" value="Buscar" name="buscar" 
-                           onclick="document.forms[0].action = 'pages/busqueda.jsp';
-                                   return true;" />
-                </form>
+                <%
+                    Cliente cliente = new Cliente();
+                    cliente.actualizarArbolServidor();
+                    String urlFile = cliente.busquedaParalela("asd");
+                    
+                    out.println("urlFile: "+urlFile);
+
+                %>
+
+                <!--                    <form>
+                                    <input title="Ingrese una búsqueda" type="text" name="buscador" id="buscador" pattern="[a-zA-Z0-9]+" required/><br/>
+                                    <input type="submit" value="Buscar" name="buscar" 
+                                           onclick="" />
+            </form>-->
             </div>
         </div><!-- /.container -->
 
