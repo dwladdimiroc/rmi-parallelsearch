@@ -51,10 +51,10 @@ public class ImplementacionServidorRMI extends UnicastRemoteObject implements In
     
     @Override
     public String linkearArchivo(String dirFile) throws RemoteException {
-        String url = "http://localhost/Server1/";
+        String url = "http://localhost/Server2/";
         
         try {
-            String[] cmd = {"cp", dirFile, "/var/www/html/Server1/"};
+            String[] cmd = {"cp", dirFile, "/var/www/html/Server2/"};
             Runtime.getRuntime().exec(cmd);
         } catch (IOException ioe) {
             System.out.println(ioe);

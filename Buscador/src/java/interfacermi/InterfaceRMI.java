@@ -15,5 +15,6 @@ import java.rmi.RemoteException;
  */
 public interface InterfaceRMI extends Remote {
     public String busquedaArchivo(String nombre) throws RemoteException;
-    public void actualizarArbol() throws RemoteException;
+    public String linkearArchivo(String dirFile) throws RemoteException;
+    //public void actualizarArbol() throws RemoteException;
 }

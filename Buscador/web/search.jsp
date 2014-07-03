@@ -1,5 +1,9 @@
 <%@page import="cliente.Cliente"%>
 
+<%
+    String name = request.getParameter("search");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,11 +41,21 @@
 
         <div class="container">
             <div class="text-center">
-                <form id="search" action="search.jsp" method="get">
-                    <input title="Ingrese una búsqueda" type="text" name="search" id="search" required /><br/>
-                    <input value="Buscar" type="submit" />
-                </form>
+                <%
+                    long timeStart = System.currentTimeMillis();
+                    Cliente cliente = new Cliente();
+                    String dirFile = cliente.busquedaParalela(name);
+                    String urlFile = cliente.linkDescarga(dirFile);
 
+                    if (urlFile == null) {
+                        out.print("No se encuentra el archivo en el sistema");
+                    } else {
+                        long timeEnd = System.currentTimeMillis();
+                        out.println("La búsqueda se demoró: " + (timeEnd - timeStart) + " milisegundos");
+                        out.print("<a href=" + urlFile + ">Descargar " + name + "</a>");
+                    }
+
+                %>
             </div>
         </div><!-- /.container -->
 

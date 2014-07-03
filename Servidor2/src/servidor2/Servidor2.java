@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servidor1;
+package servidor2;
 
 import interfacermi.InterfaceRMI;
 import java.awt.event.*;
@@ -20,13 +20,13 @@ import rmi.ServidorRMI;
  *
  * @author daniel
  */
-public class Servidor1 extends JFrame implements ActionListener {
+public class Servidor2 extends JFrame implements ActionListener {
 
     private Timer timer;
     JButton botonSwitchEncender;
     JButton botonSwitchApagar;
 
-    public Servidor1() {
+    public Servidor2() {
         setLayout(null);
         botonSwitchEncender = new JButton("Encender");
         botonSwitchEncender.setBounds(20, 20, 180, 60);
@@ -39,7 +39,7 @@ public class Servidor1 extends JFrame implements ActionListener {
         add(botonSwitchApagar);
         botonSwitchApagar.addActionListener(this);
 
-        this.setTitle("Servidor 1");
+        this.setTitle("Servidor 2");
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -52,13 +52,13 @@ public class Servidor1 extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        Servidor1 panel = new Servidor1();
+        Servidor2 panel = new Servidor2();
         panel.setBounds(650, 350, 250, 250);
         panel.setVisible(true);
     }
 
     public static ServidorRMI server;
-    public static int puertoEscucha = 4000;
+    public static int puertoEscucha = 4001;
     public static ImplementacionServidorRMI objetoLocal;
     public static String nombreReferenciaRemota = "Implementacion";
 
@@ -114,7 +114,7 @@ public class Servidor1 extends JFrame implements ActionListener {
                 interfacermi.actualizarArbol();
                 System.out.println("Actualización del árbol");
             } catch (RemoteException ex) {
-                Logger.getLogger(Servidor1.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Servidor2.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
